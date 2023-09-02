@@ -124,6 +124,9 @@ th, td {
   cursor: pointer;
   }
 }
+// Add a CSS class for animation
+table.classList.add('sort-animation');
+    
 </style>
 </head>
 <body>
@@ -238,7 +241,7 @@ th, td {
       'Extra': '2.0',
       'Grand Total': '16.0',
     },
-    // Add more sample data entries as needed
+    
   ];
 
   // Function to populate the table with data
@@ -317,86 +320,6 @@ updateTotals();
 
 // Define dataRows and sortIcons variables
 const dataRows = Array.from(document.querySelectorAll('tbody tr'));
-// Sample data to add to the existing data
-const additionalData = [
-  {
-    'Site': 'Site E',
-    'Guards': 'Eva Johnson',
-    'Time|In': '07:45 AM',
-    'Time|Out': '04:45 PM',
-    'N': '8.0',
-    'T': '4.0',
-    'D': '2.0',
-    'Total': '14.0',
-    'Extra': '2.0',
-    'Grand Total': '16.0',
-  },
-  {
-    'Site': 'Site F',
-    'Guards': 'Frank Williams',
-    'Time|In': '08:30 AM',
-    'Time|Out': '05:30 PM',
-    'N': '8.0',
-    'T': '4.0',
-    'D': '2.0',
-    'Total': '14.0',
-    'Extra': '2.0',
-    'Grand Total': '16.0',
-  },
-  {
-    'Site': 'Site G',
-    'Guards': 'Grace Smith',
-    'Time|In': '07:15 AM',
-    'Time|Out': '04:15 PM',
-    'N': '8.0',
-    'T': '4.0',
-    'D': '2.0',
-    'Total': '14.0',
-    'Extra': '2.0',
-    'Grand Total': '16.0',
-  },
-  {
-    'Site': 'Site H',
-    'Guards': 'Harry Brown',
-    'Time|In': '08:15 AM',
-    'Time|Out': '05:15 PM',
-    'N': '8.0',
-    'T': '4.0',
-    'D': '2.0',
-    'Total': '14.0',
-    'Extra': '2.0',
-    'Grand Total': '16.0',
-  },
-  {
-    'Site': 'Site I',
-    'Guards': 'Isabel Lee',
-    'Time|In': '07:00 AM',
-    'Time|Out': '04:00 PM',
-    'N': '8.0',
-    'T': '4.0',
-    'D': '2.0',
-    'Total': '14.0',
-    'Extra': '2.0',
-    'Grand Total': '16.0',
-  },
-];
-
-// Function to add data to the table
-function addDataToTable(data) {
-  const tbody = document.querySelector('tbody');
-
-  data.forEach((rowData) => {
-    const row = document.createElement('tr');
-
-    Object.keys(rowData).forEach((key) => {
-      const cell = document.createElement('td');
-      cell.textContent = rowData[key];
-      row.appendChild(cell);
-    });
-
-    tbody.appendChild(row);
-  });
-}
 
 // Call the function to add the additional data to the table
 addDataToTable(additionalData);
@@ -420,9 +343,6 @@ function sortTable(columnIndex, ascending) {
     }
     return cellA.localeCompare(cellB);
   });
-
-  // Add a CSS class for animation
-  table.classList.add('sort-animation');
 
   // Remove existing rows from the table with a delay
   setTimeout(() => {
