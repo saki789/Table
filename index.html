@@ -354,23 +354,87 @@ function sortTable(columnIndex, ascending) {
       document.querySelector('tbody').appendChild(row);
     });
     // Add a CSS class for animation
-    table.classList.add('sort-animation');
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Sample data
+    const sampleData = [
+      // ... Your sample data ...
+    ];
 
-    // Remove the animation class after the animation completes
-    setTimeout(() => {
-      table.classList.remove('sort-animation');
-    }, 300); // Adjust the duration to match your CSS transition duration
-  }, 10); // A small delay to allow the animation class to take effect
+    // Function to populate the table with data
+    function populateTable(data) {
+      const tbody = $('tbody');
 
-  // Update the sorting icons
-  sortIcons.forEach((icon) => {
-    icon.textContent = '▲▼';
+      data.forEach((rowData) => {
+        const row = $('<tr></tr>');
+
+        Object.keys(rowData).forEach((key) => {
+          const cell = $('<td></td>').text(rowData[key]);
+          row.append(cell);
+        });
+
+        tbody.append(row);
+      });
+    }
+
+    // Populate the table with sample data
+    populateTable(sampleData);
+
+    // Event handlers using jQuery
+    $('#editButton').click(function() {
+      // Implement edit functionality
+    });
+
+    $('#removeButton').click(function() {
+      // Implement remove functionality
+    });
+
+    $('#populateButton').click(function() {
+      // Implement populate functionality
+    });
+
+    // Function to calculate and update the totals
+    function updateTotals() {
+      const dataRows = $('tbody tr');
+      let totalHoursIn = 0;
+      let totalHoursOut = 0;
+      let totalN = 0;
+      let totalT = 0;
+      let totalD = 0;
+      let totalTotal = 0;
+      let totalExtra = 0;
+      let totalGrandTotal = 0;
+      let totalSites = dataRows.length;
+
+      dataRows.each(function() {
+        const columns = $(this).find('td');
+        totalHoursIn += parseFloat(columns.eq(2).text());
+        totalHoursOut += parseFloat(columns.eq(3).text());
+        totalN += parseFloat(columns.eq(4).text());
+        totalT += parseFloat(columns.eq(5).text());
+        totalD += parseFloat(columns.eq(6).text());
+        totalTotal += parseFloat(columns.eq(7).text());
+        totalExtra += parseFloat(columns.eq(8).text());
+      });
+
+      // Update the footer cells with the calculated totals
+      $('#totalHoursIn').text(totalHoursIn.toFixed(2));
+      $('#totalHoursOut').text(totalHoursOut.toFixed(2));
+      $('#totalN').text(totalN.toFixed(2));
+      $('#totalT').text(totalT.toFixed(2));
+      $('#totalD').text(totalD.toFixed(2));
+      $('#totalTotal').text(totalTotal.toFixed(2));
+      $('#totalExtra').text(totalExtra.toFixed(2));
+      $('#totalGrandTotal').text((totalTotal + totalExtra).toFixed(2));
+      $('#totalSites').text(totalSites);
+    }
+
+    // Call the updateTotals function to calculate and update totals initially
+    updateTotals();
+
+    // ... Continue with the rest of your code using jQuery ...
   });
-  sortIcons[columnIndex].textContent = ascending ? '▲' : '▼';
-        }
-
-
-    
 </script>
 </body>
 </html>
