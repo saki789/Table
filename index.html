@@ -317,161 +317,92 @@ updateTotals();
 
 // Define dataRows and sortIcons variables
 const dataRows = Array.from(document.querySelectorAll('tbody tr'));
-const sortIcons = Array.from(document.querySelectorAll('.sort-icon'));
-const table = document.querySelector('table'); 
-  
-// Add this line to select the table element
+// Sample data to add to the existing data
+const additionalData = [
+  {
+    'Site': 'Site E',
+    'Guards': 'Eva Johnson',
+    'Time|In': '07:45 AM',
+    'Time|Out': '04:45 PM',
+    'N': '8.0',
+    'T': '4.0',
+    'D': '2.0',
+    'Total': '14.0',
+    'Extra': '2.0',
+    'Grand Total': '16.0',
+  },
+  {
+    'Site': 'Site F',
+    'Guards': 'Frank Williams',
+    'Time|In': '08:30 AM',
+    'Time|Out': '05:30 PM',
+    'N': '8.0',
+    'T': '4.0',
+    'D': '2.0',
+    'Total': '14.0',
+    'Extra': '2.0',
+    'Grand Total': '16.0',
+  },
+  {
+    'Site': 'Site G',
+    'Guards': 'Grace Smith',
+    'Time|In': '07:15 AM',
+    'Time|Out': '04:15 PM',
+    'N': '8.0',
+    'T': '4.0',
+    'D': '2.0',
+    'Total': '14.0',
+    'Extra': '2.0',
+    'Grand Total': '16.0',
+  },
+  {
+    'Site': 'Site H',
+    'Guards': 'Harry Brown',
+    'Time|In': '08:15 AM',
+    'Time|Out': '05:15 PM',
+    'N': '8.0',
+    'T': '4.0',
+    'D': '2.0',
+    'Total': '14.0',
+    'Extra': '2.0',
+    'Grand Total': '16.0',
+  },
+  {
+    'Site': 'Site I',
+    'Guards': 'Isabel Lee',
+    'Time|In': '07:00 AM',
+    'Time|Out': '04:00 PM',
+    'N': '8.0',
+    'T': '4.0',
+    'D': '2.0',
+    'Total': '14.0',
+    'Extra': '2.0',
+    'Grand Total': '16.0',
+  },
+];
 
-  // ... (previous code)
+// Function to add data to the table
+function addDataToTable(data) {
+  const tbody = document.querySelector('tbody');
 
-  // Event listeners for sorting when clicking on column headers
-  document.getElementById('sortIn').addEventListener('click', () => {
-    sortTable(2, true); // Sort the "In" column in ascending order
-  });
+  data.forEach((rowData) => {
+    const row = document.createElement('tr');
 
-  document.getElementById('sortOut').addEventListener('click', () => {
-    sortTable(3, true); // Sort the "Out" column in ascending order
-  });
-
-  // Remove the following line, as it's not needed
-  // You can add more event listeners for other columns as needed
-
-// Function to sort the table
-function sortTable(columnIndex, ascending) {
-  const rows = [...dataRows]; // Copy the rows to a new array for sorting
-  rows.sort((rowA, rowB) => {
-    const cellA = rowA.getElementsByTagName('td')[columnIndex].textContent;
-    const cellB = rowB.getElementsByTagName('td')[columnIndex].textContent;
-<script>
-  // Sample data
-  const sampleData = [
-    {
-      'Site': 'Site A',
-      'Guards': 'John Doe',
-      'Time|In': '08:00 AM',
-      'Time|Out': '05:00 PM',
-      'N': '8.0',
-      'T': '4.0',
-      'D': '2.0',
-      'Total': '14.0',
-      'Extra': '2.0',
-      'Grand Total': '16.0',
-    },
-    // Add more sample data entries as needed
-  ];
-
-  // Function to populate the table with data
-  function populateTable(data) {
-    const tbody = document.querySelector('tbody');
-
-    data.forEach((rowData) => {
-      const row = document.createElement('tr');
-
-      Object.keys(rowData).forEach((key) => {
-        const cell = document.createElement('td');
-        cell.textContent = rowData[key];
-        row.appendChild(cell);
-      });
-
-      tbody.appendChild(row);
-    });
-  }
-
-  // Populate the table with sample data
-  populateTable(sampleData);
-
-  // Function to sort the table
-  function sortTable(columnIndex, ascending) {
-    const dataRows = Array.from(document.querySelectorAll('tbody tr'));
-    const sortIcons = Array.from(document.querySelectorAll('.sort-icon'));
-    const table = document.querySelector('table');
-
-    const rows = [...dataRows]; // Copy the rows to a new array for sorting
-    rows.sort((rowA, rowB) => {
-      const cellA = rowA.getElementsByTagName('td')[columnIndex].textContent;
-      const cellB = rowB.getElementsByTagName('td')[columnIndex].textContent;
-      if (!ascending) {
-        return cellB.localeCompare(cellA);
-      }
-      return cellA.localeCompare(cellB);
+    Object.keys(rowData).forEach((key) => {
+      const cell = document.createElement('td');
+      cell.textContent = rowData[key];
+      row.appendChild(cell);
     });
 
-    // Add a CSS class for animation
-    table.classList.add('sort-animation');
-
-    // Remove existing rows from the table with a delay
-    setTimeout(() => {
-      dataRows.forEach((row) => {
-        row.remove();
-      });
-
-      // Append the sorted rows back to the table with a delay
-      rows.forEach((row) => {
-        document.querySelector('tbody').appendChild(row);
-      });
-
-      // Remove the animation class after the animation completes
-      setTimeout(() => {
-        table.classList.remove('sort-animation');
-      }, 300); // Adjust the duration to match your CSS transition duration
-    }, 10); // A small delay to allow the animation class to take effect
-
-    // Update the sorting icons
-    sortIcons.forEach((icon) => {
-      icon.textContent = '▲▼';
-    });
-    sortIcons[columnIndex].textContent = ascending ? '▲' : '▼';
-  }
-
-  // Event listeners for sorting when clicking on column headers
-  document.getElementById('sortIn').addEventListener('click', () => {
-    sortTable(2, true); // Sort the "In" column in ascending order
+    tbody.appendChild(row);
   });
+}
 
-  document.getElementById('sortOut').addEventListener('click', () => {
-    sortTable(3, true); // Sort the "Out" column in ascending order
-  });
+// Call the function to add the additional data to the table
+addDataToTable(additionalData);
 
-  // You can add more event listeners for other columns as needed
-
-  // Function to calculate and update the totals
-  function updateTotals() {
-    const dataRows = document.querySelectorAll('tbody tr');
-    let totalHoursIn = 0;
-    let totalHoursOut = 0;
-    let totalN = 0;
-    let totalT = 0;
-    let totalD = 0;
-    let totalTotal = 0;
-    let totalExtra = 0;
-    let totalGrandTotal = 0;
-    let totalSites = dataRows.length;
-
-    dataRows.forEach((row) => {
-      const columns = row.getElementsByTagName('td');
-      totalHoursIn += parseFloat(columns[2].textContent);
-      totalHoursOut += parseFloat(columns[3].textContent);
-      totalN += parseFloat(columns[4].textContent);
-      totalT += parseFloat(columns[5].textContent);
-      totalD += parseFloat(columns[6].textContent);
-      totalTotal += parseFloat(columns[7].textContent);
-      totalExtra += parseFloat(columns[8].textContent);
-    });
-
-    // Update the footer cells with the calculated totals
-    document.getElementById('totalHoursIn').textContent = totalHoursIn.toFixed(2);
-    document.getElementById('totalHoursOut').textContent = totalHoursOut.toFixed(2);
-    document.getElementById('totalN').textContent = totalN.toFixed(2);
-    document.getElementById('totalT').textContent = totalT.toFixed(2);
-    document.getElementById('totalD').textContent = totalD.toFixed(2);
-    document.getElementById('totalTotal').textContent = totalTotal.toFixed(2);
-    document.getElementById('totalExtra').textContent = totalExtra.toFixed(2);
-    document.getElementById('totalGrandTotal').textContent = (totalTotal + totalExtra).toFixed(2);
-    document.getElementById('totalSites').textContent = totalSites;
-  }
-
-  // Call the updateTotals function to calculate and update totals initially
-  updateTotals();
+// Update the totals after adding the data
+updateTotals();
 </script>
 </body>
 </html>
