@@ -5,6 +5,9 @@
     /* Add /* General styles */
 body {
   font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
 }
 
 /* Table styles */
@@ -12,8 +15,10 @@ table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  border: 1px solid #ddd;
-  background-color: #f5f5f5;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 th {
@@ -21,47 +26,84 @@ th {
   top: 0;
   background-color: #007BFF;
   color: white;
-  padding: 10px;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #0056b3;
 }
 
 td {
-  background-color: #fff;
-  color: #333;
   padding: 10px;
-}
-
-/* Minimal borders */
-table th, table td {
-  border: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 /* Hover effects */
 tr:hover {
-  background-color: #f0f0f0;
+  background-color: #f5f5f5;
+  transition: background-color 0.3s;
 }
 
-/* Button styles (for Edit, Remove, etc.) */
+/* Button styles */
 .button-group {
   margin-top: 10px;
+  text-align: center;
 }
 
 .button {
-  padding: 5px 10px;
+  padding: 10px 20px;
   background-color: #007BFF;
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .button:not(:last-child) {
   margin-right: 10px;
 }
 
+.button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
 /* Input field styles (for search) */
 input[type="text"] {
-  padding: 5px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 10px;
+  width: 100%;
+  box-sizing: border-box;
 }
-    </style>
+
+/* Pagination styles */
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive design */
+@media screen and (max-width: 600px) {
+  table {
+    box-shadow: none;
+  }
+}
 </head>
 <body>
   <div class="table-container">
