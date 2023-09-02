@@ -25,6 +25,28 @@
   </style>
 </head>
 <body>
+
+  <section>
+    <!-- Search Form -->
+<div class="search-container">
+  <!-- Site Name -->
+  <label for="siteName">Site Name:</label>
+  <input type="text" id="siteName" placeholder="Enter Site Name">
+
+  <!-- Date Range -->
+  <label for="startDate">Start Date:</label>
+  <input type="date" id="startDate">
+  <label for="endDate">End Date:</label>
+  <input type="date" id="endDate">
+
+  <!-- Hours Worked -->
+  <label for="hoursWorked">Hours Worked:</label>
+  <input type="number" id="hoursWorked" placeholder="Enter Hours Worked">
+
+  <button class="button" id="searchButton">Search</button>
+</div>
+  </section>
+  <section>
   <div class="table-container">
     <div class="button-group">
       <button class="button" id="editButton">Edit</button>
@@ -140,5 +162,7 @@
 
     // Add more event handlers as needed
   </script>
+  </section>
 </body>
+  
 </html>
