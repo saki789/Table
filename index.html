@@ -316,8 +316,13 @@ function updateTotals() {
 updateTotals();
 
   //sortTable
-  function sortTable(columnIndex, ascending) {
-  const rows = Array.from(dataRows);
+// Define dataRows and sortIcons variables
+const dataRows = Array.from(document.querySelectorAll('tbody tr'));
+const sortIcons = Array.from(document.querySelectorAll('.sort-icon'));
+
+// Function to sort the table
+function sortTable(columnIndex, ascending) {
+  const rows = [...dataRows]; // Copy the rows to a new array for sorting
   rows.sort((rowA, rowB) => {
     const cellA = rowA.getElementsByTagName('td')[columnIndex].textContent;
     const cellB = rowB.getElementsByTagName('td')[columnIndex].textContent;
@@ -352,7 +357,18 @@ updateTotals();
     icon.textContent = '▲▼';
   });
   sortIcons[columnIndex].textContent = ascending ? '▲' : '▼';
-    }
+}
+
+// Event listeners for sorting when clicking on column headers
+document.getElementById('sortIn').addEventListener('click', () => {
+  sortTable(2, true); // Sort the "In" column in ascending order
+});
+
+document.getElementById('sortOut').addEventListener('click', () => {
+  sortTable(3, true); // Sort the "Out" column in ascending order
+});
+
+// You can add more event listeners for other columns as needed
   
 </script>
 </body>
