@@ -148,61 +148,93 @@
     </div>
   </section>
   <script>
-    // Sample data
-    const sampleData = [
-      {
-        'Simple header': 'Site A',
-        'Combo header|Sub 1': 'John Doe',
-        'Combo header|Sub 2': 'Jane Smith',
-        'Col 1': 'Value 1',
-        'Col 2': 'Value 2',
-        'Col 3': 'Value 3',
-      },
-      {
-        'Simple header': 'Site B',
-        'Combo header|Sub 1': 'Alice Johnson',
-        'Combo header|Sub 2': 'Bob Smith',
-        'Col 1': 'Value 4',
-        'Col 2': 'Value 5',
-        'Col 3': 'Value 6',
-      },
-      // Add more sample data entries as needed
-    ];
+  // Sample data
+  const sampleData = [
+    {
+      'Site': 'Site A',
+      'Guards': 'John Doe',
+      'Time|In': '08:00 AM',
+      'Time|Out': '05:00 PM',
+      'N': '8.0',
+      'T': '4.0',
+      'D': '2.0',
+      'Total': '14.0',
+      'Extra': '2.0',
+      'Grand Total': '16.0',
+    },
+    {
+      'Site': 'Site B',
+      'Guards': 'Jane Smith',
+      'Time|In': '09:00 AM',
+      'Time|Out': '06:00 PM',
+      'N': '8.0',
+      'T': '4.0',
+      'D': '2.0',
+      'Total': '14.0',
+      'Extra': '2.0',
+      'Grand Total': '16.0',
+    },
+    {
+      'Site': 'Site C',
+      'Guards': 'Alice Johnson',
+      'Time|In': '07:30 AM',
+      'Time|Out': '04:30 PM',
+      'N': '8.0',
+      'T': '4.0',
+      'D': '2.0',
+      'Total': '14.0',
+      'Extra': '2.0',
+      'Grand Total': '16.0',
+    },
+    {
+      'Site': 'Site D',
+      'Guards': 'Bob Smith',
+      'Time|In': '08:15 AM',
+      'Time|Out': '05:15 PM',
+      'N': '8.0',
+      'T': '4.0',
+      'D': '2.0',
+      'Total': '14.0',
+      'Extra': '2.0',
+      'Grand Total': '16.0',
+    },
+    // Add more sample data entries as needed
+  ];
 
-    // Function to populate the table with data
-    function populateTable(data) {
-      const tbody = document.querySelector('tbody');
+  // Function to populate the table with data
+  function populateTable(data) {
+    const tbody = document.querySelector('tbody');
 
-      data.forEach((rowData) => {
-        const row = document.createElement('tr');
+    data.forEach((rowData) => {
+      const row = document.createElement('tr');
 
-        Object.keys(rowData).forEach((key) => {
-          const cell = document.createElement('td');
-          cell.textContent = rowData[key];
-          row.appendChild(cell);
-        });
-
-        tbody.appendChild(row);
+      Object.keys(rowData).forEach((key) => {
+        const cell = document.createElement('td');
+        cell.textContent = rowData[key];
+        row.appendChild(cell);
       });
-    }
 
-    // Populate the table with sample data
-    populateTable(sampleData);
-
-    // Event handlers (you can add functionality here)
-    document.getElementById('editButton').addEventListener('click', () => {
-      // Implement edit functionality
+      tbody.appendChild(row);
     });
+  }
 
-    document.getElementById('removeButton').addEventListener('click', () => {
-      // Implement remove functionality
-    });
+  // Populate the table with sample data
+  populateTable(sampleData);
 
-    document.getElementById('populateButton').addEventListener('click', () => {
-      // Implement populate functionality
-    });
+  // Event handlers (you can add functionality here)
+  document.getElementById('editButton').addEventListener('click', () => {
+    // Implement edit functionality
+  });
 
-    // Add more event handlers as needed
+  document.getElementById('removeButton').addEventListener('click', () => {
+    // Implement remove functionality
+  });
+
+  document.getElementById('populateButton').addEventListener('click', () => {
+    // Implement populate functionality
+  });
+
+  // Add more event handlers as needed
   </script>
 </body>
 </html>
