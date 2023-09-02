@@ -100,7 +100,76 @@
     </div>
   </div>
   <script>
-    // Add JavaScript code for interactivity here, including filtering, pagination, and actions (Edit, Remove, etc.).
+    // Sample data
+    const sampleData = [
+      {
+        Date: '2023-09-02',
+        'Site Name': 'Site A',
+        'Guard Name': 'John Doe',
+        'Time In': '08:00 AM',
+        'Time Out': '05:00 PM',
+        N: '8.0',
+        T: '4.0',
+        D: '2.0',
+        'Total (hrs)': '14.0',
+        Extra: '2.0',
+        'Grand Total (hr)': '16.0',
+      },
+      {
+        Date: '2023-09-03',
+        'Site Name': 'Site B',
+        'Guard Name': 'Jane Smith',
+        'Time In': '09:00 AM',
+        'Time Out': '06:00 PM',
+        N: '8.0',
+        T: '4.0',
+        D: '2.0',
+        'Total (hrs)': '14.0',
+        Extra: '2.0',
+        'Grand Total (hr)': '16.0',
+      },
+      // Add more sample data entries as needed
+    ];
+
+    // Function to populate the table with data
+    function populateTable(data) {
+      const tbody = document.querySelector('tbody');
+
+      data.forEach((rowData) => {
+        const row = document.createElement('tr');
+
+        Object.values(rowData).forEach((value) => {
+          const cell = document.createElement('td');
+          cell.textContent = value;
+          row.appendChild(cell);
+        });
+
+        // Add edit, remove buttons (you'll need to add event handlers for these buttons)
+        const actionsCell = document.createElement('td');
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        // Add event handler for edit button
+        editButton.addEventListener('click', () => {
+          // Implement edit functionality
+        });
+
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove';
+        // Add event handler for remove button
+        removeButton.addEventListener('click', () => {
+          // Implement remove functionality
+        });
+
+        actionsCell.appendChild(editButton);
+        actionsCell.appendChild(removeButton);
+        row.appendChild(actionsCell);
+
+        tbody.appendChild(row);
+      });
+    }
+
+    // Populate the table with sample data
+    populateTable(sampleData);
   </script>
 </body>
 </html>
