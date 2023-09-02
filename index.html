@@ -318,7 +318,23 @@ updateTotals();
 // Define dataRows and sortIcons variables
 const dataRows = Array.from(document.querySelectorAll('tbody tr'));
 const sortIcons = Array.from(document.querySelectorAll('.sort-icon'));
-const table = document.querySelector('table'); // Add this line to select the table element
+const table = document.querySelector('table'); 
+  
+// Add this line to select the table element
+
+  // ... (previous code)
+
+  // Event listeners for sorting when clicking on column headers
+  document.getElementById('sortIn').addEventListener('click', () => {
+    sortTable(2, true); // Sort the "In" column in ascending order
+  });
+
+  document.getElementById('sortOut').addEventListener('click', () => {
+    sortTable(3, true); // Sort the "Out" column in ascending order
+  });
+
+  // Remove the following line, as it's not needed
+  // You can add more event listeners for other columns as needed
 
 // Function to sort the table
 function sortTable(columnIndex, ascending) {
