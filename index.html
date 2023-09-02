@@ -5,98 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Table Example</title>
   <style>
-    /* Global Styles */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f2f2f2;
-    }
-
-    /* Header Styles */
-    header {
-      background-color: #333;
-      color: white;
-      padding: 10px;
-      text-align: center;
-    }
-
-    /* Section Styles */
-    section {
-      padding: 20px;
-      margin: 20px;
-      background-color: white;
-      border-radius: 5px;
-      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Search Container Styles */
-    .search-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    label {
-      flex: 1;
-    }
-
-    input[type="text"],
-    input[type="date"],
-    input[type="number"] {
-      flex: 3;
-      padding: 5px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-    }
-
-    .button {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 3px;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-
-    /* Table Container Styles */
-    .table-container {
-      margin-top: 20px;
-    }
-
-    .button-group {
-      margin-bottom: 10px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th, td {
-      border: 1px solid black;
-      padding: 8px;
-      text-align: center;
-    }
-
-    th {
-      background-color: #007bff;
-      color: white;
-    }
-
-    input[type="text"]#search {
-      width: 100%;
-      padding: 5px;
-      margin-top: 10px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-    }
-
-    /* Pagination Styles */
-    .pagination {
-      text-align: center;
-      margin-top: 10px;
-    }
+    /* ... Your CSS styles here ... */
   </style>
 </head>
 <body>
@@ -105,40 +14,14 @@
   </header>
   <section>
     <!-- Search Form -->
-    <div class="search-container">
-      
-
-      <!-- Date Range -->
-      <label for="startDate">Start Date:</label>
-      <input type="date" id="startDate">
-      <label for="endDate">End Date:</label>
-      <input type="date" id="endDate">
-
-      <!-- Hours Worked -->
-      <label for="hoursWorked">Hours Worked:</label>
-      <input type="number" id="hoursWorked" placeholder="Enter Hours Worked">
-
-      <!-- Site Name -->
-      <label for="siteName">Site:</label>
-      <input type="text" id="siteName" placeholder="Enter Site Name">
-      <label for="Name">Site Name:</label>
-      <input type="text" id="Name" placeholder="Enter Guard Name">
-      
-      <button class="button" id="searchButton">Search</button>
-    </div>
+    <!-- ... Your search form code ... -->
   </section>
   <section>
     <div class="table-container">
       <div class="button-group">
-        <button class="button" id="editButton">Edit</button>
-        <button class="button" id="removeButton">Remove</button>
-        <button class="button" id="resetButton">Reset</button>
-        <button class="button" id="undoButton">Undo</button>
-        <button class="button" id="redoButton">Redo</button>
-        <button class="button" id="populateButton">Populate Table</button>
+        <!-- ... Your button group code ... -->
       </div>
-
-      <table id="dataTable">
+      <table>
         <thead>
           <tr>
             <th rowspan="2">Simple header</th>
@@ -151,13 +34,71 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Table data will be populated here -->
+          <!-- Sample data will be populated here using JavaScript -->
         </tbody>
       </table>
+      <input type="text" id="search" placeholder="Search...">
       <div class="pagination">
         <!-- Pagination controls will be added here -->
       </div>
     </div>
   </section>
+  <script>
+    // Sample data
+    const sampleData = [
+      {
+        'Simple header': 'Site A',
+        'Combo header|Sub 1': 'John Doe',
+        'Combo header|Sub 2': 'Jane Smith',
+        'Col 1': 'Value 1',
+        'Col 2': 'Value 2',
+        'Col 3': 'Value 3',
+      },
+      {
+        'Simple header': 'Site B',
+        'Combo header|Sub 1': 'Alice Johnson',
+        'Combo header|Sub 2': 'Bob Smith',
+        'Col 1': 'Value 4',
+        'Col 2': 'Value 5',
+        'Col 3': 'Value 6',
+      },
+      // Add more sample data entries as needed
+    ];
+
+    // Function to populate the table with data
+    function populateTable(data) {
+      const tbody = document.querySelector('tbody');
+
+      data.forEach((rowData) => {
+        const row = document.createElement('tr');
+
+        Object.keys(rowData).forEach((key) => {
+          const cell = document.createElement('td');
+          cell.textContent = rowData[key];
+          row.appendChild(cell);
+        });
+
+        tbody.appendChild(row);
+      });
+    }
+
+    // Populate the table with sample data
+    populateTable(sampleData);
+
+    // Event handlers (you can add functionality here)
+    document.getElementById('editButton').addEventListener('click', () => {
+      // Implement edit functionality
+    });
+
+    document.getElementById('removeButton').addEventListener('click', () => {
+      // Implement remove functionality
+    });
+
+    document.getElementById('populateButton').addEventListener('click', () => {
+      // Implement populate functionality
+    });
+
+    // Add more event handlers as needed
+  </script>
 </body>
 </html>
