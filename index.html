@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Add your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f5f5f5;
+    }
+
+    .table-container {
+      max-width: 100%;
+      overflow-x: auto;
+    }
+
+    .button-group {
+      margin-top: 10px;
+    }
+
+    .button {
+      padding: 5px 10px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .button:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    input[type="text"] {
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="table-container">
+    <input type="text" id="search" placeholder="Search...">
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Site Name</th>
+          <th>Guard Name</th>
+          <th>Time In</th>
+          <th>Time Out</th>
+          <th>N (Normal Time)</th>
+          <th>T (Time and a Half)</th>
+          <th>D (Double Time)</th>
+          <th>Total (hrs)</th>
+          <th>Extra</th>
+          <th>Grand Total (hr)</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data rows will be added here -->
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="2">SUM</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="button-group">
+      <button class="button">Edit</button>
+      <button class="button">Remove</button>
+      <button class="button">Reset</button>
+      <button class="button">Undo</button>
+      <button class="button">Redo</button>
+      <button class="button">Populate Table</button>
+    </div>
+    <div class="pagination">
+      <!-- Pagination controls will be added here -->
+    </div>
+  </div>
+  <script>
+    // Add JavaScript code for interactivity here, including filtering, pagination, and actions (Edit, Remove, etc.).
+  </script>
+</body>
+</html>
