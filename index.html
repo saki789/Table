@@ -70,39 +70,7 @@
     </div>
   </section>
   <script>
-        $(document).ready(function () {
-            var table = $('#guardTable');
-            var tbody = table.find('tbody');
-            var rows = tbody.find('tr').toArray();
-
-            $('#sortSiteName').on('click', function () {
-                rows.sort(function (a, b) {
-                    var keyA = $(a).find('td[data-column="siteName"]').text();
-                    var keyB = $(b).find('td[data-column="siteName"]').text();
-                    return keyA.localeCompare(keyB);
-                });
-                tbody.empty().append(rows);
-            });
-
-            $('#sortGuardName').on('click', function () {
-                rows.sort(function (a, b) {
-                    var keyA = $(a).find('td[data-column="guardName"]').text();
-                    var keyB = $(b).find('td[data-column="guardName"]').text();
-                    return keyA.localeCompare(keyB);
-                });
-                tbody.empty().append(rows);
-            });
-
-            $('#sortTotalHours').on('click', function () {
-                rows.sort(function (a, b) {
-                    var keyA = parseFloat($(a).find('td[data-column="totalHours"]').text());
-                    var keyB = parseFloat($(b).find('td[data-column="totalHours"]').text());
-                    return keyA - keyB;
-                });
-                tbody.empty().append(rows);
-            });
-        });
-                                  </script>
+  
   
 </body>
 </html>
