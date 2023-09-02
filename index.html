@@ -5,239 +5,157 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Table Example</title>
   <style>
-    /* Global styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f5f5;
-}
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
 
-/* Container for the table and form */
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
+    /* Header Styles */
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
 
-/* Search Form */
-.search-container {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-bottom: 20px;
-  text-align: center;
-}
+    /* Section Styles */
+    section {
+      padding: 20px;
+      margin: 20px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    }
 
-.search-container label {
-  font-weight: bold;
-}
+    /* Search Container Styles */
+    .search-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-.search-container input[type="text"],
-.search-container input[type="date"],
-.search-container input[type="number"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+    label {
+      flex: 1;
+    }
 
-.search-container button {
-  background-color: #007BFF;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
+    input[type="text"],
+    input[type="date"],
+    input[type="number"] {
+      flex: 3;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
 
-.search-container button:hover {
-  background-color: #0056b3; /* Darker shade on hover */
-}
+    .button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
 
-/* Table styles */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
+    /* Table Container Styles */
+    .table-container {
+      margin-top: 20px;
+    }
 
-th, td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: center;
-}
+    .button-group {
+      margin-bottom: 10px;
+    }
 
-th {
-  background-color: #f2f2f2;
-}
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
 
-/* Add responsive styles as needed */
-@media (max-width: 768px) {
-  /* Add responsive styles for smaller screens */
-  .search-container input[type="text"],
-  .search-container input[type="date"],
-  .search-container input[type="number"] {
-    width: 100%;
-  }
-}
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+
+    input[type="text"]#search {
+      width: 100%;
+      padding: 5px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    /* Pagination Styles */
+    .pagination {
+      text-align: center;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
-
+  <header>
+    <h1>Table Example</h1>
+  </header>
   <section>
     <!-- Search Form -->
-<div class="search-container">
-  <!-- Site Name -->
-  <label for="siteName">Site Name:</label>
-  <input type="text" id="siteName" placeholder="Enter Site Name">
+    <div class="search-container">
+      <!-- Site Name -->
+      <label for="siteName">Site Name:</label>
+      <input type="text" id="siteName" placeholder="Enter Site Name">
 
-  <!-- Date Range -->
-  <label for="startDate">Start Date:</label>
-  <input type="date" id="startDate">
-  <label for="endDate">End Date:</label>
-  <input type="date" id="endDate">
+      <!-- Date Range -->
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate">
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate">
 
-  <!-- Hours Worked -->
-  <label for="hoursWorked">Hours Worked:</label>
-  <input type="number" id="hoursWorked" placeholder="Enter Hours Worked">
+      <!-- Hours Worked -->
+      <label for="hoursWorked">Hours Worked:</label>
+      <input type="number" id="hoursWorked" placeholder="Enter Hours Worked">
 
-  <button class="button" id="searchButton">Search</button>
-</div>
+      <button class="button" id="searchButton">Search</button>
+    </div>
   </section>
   <section>
-  <div class="table-container">
-    <div class="button-group">
-      <button class="button" id="editButton">Edit</button>
-      <button class="button" id="removeButton">Remove</button>
-      <button class="button" id="resetButton">Reset</button>
-      <button class="button" id="undoButton">Undo</button>
-      <button class="button" id="redoButton">Redo</button>
-      <button class="button" id="populateButton">Populate Table</button>
+    <div class="table-container">
+      <div class="button-group">
+        <button class="button" id="editButton">Edit</button>
+        <button class="button" id="removeButton">Remove</button>
+        <button class="button" id="resetButton">Reset</button>
+        <button class="button" id="undoButton">Undo</button>
+        <button class="button" id="redoButton">Redo</button>
+        <button class="button" id="populateButton">Populate Table</button>
+      </div>
+
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th rowspan="2">Simple header</th>
+            <th colspan="2">Combo header</th>
+          </tr>
+          <tr>
+            <!-- skip 1st column because it merges vertically -->
+            <th>Sub 1</th>
+            <th>Sub 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Table data will be populated here -->
+        </tbody>
+      </table>
+
+      <input type="text" id="search" placeholder="Search...">
+      <div class="pagination">
+        <!-- Pagination controls will be added here -->
+      </div>
     </div>
-    
-    <table>
-  <tr>
-    <th>Date</th>
-    <th>Site</th>
-    <th>Guards</th>
-    <th colspan="2">Time</th>
-    <th>N</th>
-    <th>T</th>
-    <th>D</th>
-    <th>Total</th>
-    <th>Extra</th>
-    <th>Grand Total</th>
-  </tr>
-  <tr>
-    <td></td> <!-- Date -->
-    <td></td> <!-- Site -->
-    <td></td> <!-- Guards -->
-    <td colspan="2"><span>In</span><span>Out</span></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tfoot>
-    <tr>
-      <th colspan="2">SUM</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </tfoot>
-    </table>
-    
-      <thead>
-    <input type="text" id="search" placeholder="Search...">
-    <div class="pagination">
-      <!-- Pagination controls will be added here -->
-    </div>
-  </div>
-  <script>
-    // Sample data
-    const sampleData = [
-      {
-        Date: '2023-09-02',
-        'Site Name': 'Site A',
-        'Guard Name': 'John Doe',
-        'Time In': '08:00 AM',
-        'Time Out': '05:00 PM',
-        N: '8.0',
-        T: '4.0',
-        D: '2.0',
-        'Total (hrs)': '14.0',
-        Extra: '2.0',
-        'Grand Total (hr)': '16.0',
-      },
-      {
-        Date: '2023-09-03',
-        'Site Name': 'Site B',
-        'Guard Name': 'Jane Smith',
-        'Time In': '09:00 AM',
-        'Time Out': '06:00 PM',
-        N: '8.0',
-        T: '4.0',
-        D: '2.0',
-        'Total (hrs)': '14.0',
-        Extra: '2.0',
-        'Grand Total (hr)': '16.0',
-      },
-      // Add more sample data entries as needed
-    ];
-
-    // Function to populate the table with data
-    function populateTable(data) {
-      const tbody = document.getElementById('dataTable');
-
-      data.forEach((rowData) => {
-        const row = document.createElement('tr');
-
-        Object.values(rowData).forEach((value) => {
-          const cell = document.createElement('td');
-          cell.textContent = value;
-          row.appendChild(cell);
-        });
-
-        tbody.appendChild(row);
-      });
-    }
-
-    // Populate the table with sample data
-    populateTable(sampleData);
-
-    // Event handlers (you can add functionality here)
-    document.getElementById('editButton').addEventListener('click', () => {
-      // Implement edit functionality
-    });
-
-    document.getElementById('removeButton').addEventListener('click', () => {
-      // Implement remove functionality
-    });
-
-    document.getElementById('populateButton').addEventListener('click', () => {
-      // Implement populate functionality
-    });
-
-    // Add more event handlers as needed
-  </script>
   </section>
 </body>
-  
 </html>
