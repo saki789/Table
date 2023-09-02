@@ -124,8 +124,7 @@ th, td {
   cursor: pointer;
   }
 }
-// Add a CSS class for animation
-table.classList.add('sort-animation');
+
     
 </style>
 </head>
@@ -354,6 +353,8 @@ function sortTable(columnIndex, ascending) {
     rows.forEach((row) => {
       document.querySelector('tbody').appendChild(row);
     });
+    // Add a CSS class for animation
+    table.classList.add('sort-animation');
 
     // Remove the animation class after the animation completes
     setTimeout(() => {
