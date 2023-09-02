@@ -315,10 +315,10 @@ function updateTotals() {
 // Call the updateTotals function to calculate and update totals initially
 updateTotals();
 
-  //sortTable
 // Define dataRows and sortIcons variables
 const dataRows = Array.from(document.querySelectorAll('tbody tr'));
 const sortIcons = Array.from(document.querySelectorAll('.sort-icon'));
+const table = document.querySelector('table'); // Add this line to select the table element
 
 // Function to sort the table
 function sortTable(columnIndex, ascending) {
@@ -369,7 +369,6 @@ document.getElementById('sortOut').addEventListener('click', () => {
 });
 
 // You can add more event listeners for other columns as needed
-  
 </script>
 </body>
 </html>
