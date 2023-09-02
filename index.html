@@ -50,7 +50,15 @@
 </head>
 <body>
   <div class="table-container">
-    <input type="text" id="search" placeholder="Search...">
+    
+    <div class="button-group">
+      <button class="button">Edit</button>
+      <button class="button">Remove</button>
+      <button class="button">Reset</button>
+      <button class="button">Undo</button>
+      <button class="button">Redo</button>
+      <button class="button">Populate Table</button>
+    </div>
     <table>
       <thead>
         <tr>
@@ -59,13 +67,12 @@
           <th>Guard Name</th>
           <th>Time In</th>
           <th>Time Out</th>
-          <th>N (Normal Time)</th>
-          <th>T (Time and a Half)</th>
-          <th>D (Double Time)</th>
+          <th>N</th>
+          <th>T</th>
+          <th>D</th>
           <th>Total (hrs)</th>
           <th>Extra</th>
           <th>Grand Total (hr)</th>
-          
         </tr>
       </thead>
       <tbody>
@@ -87,14 +94,8 @@
         </tr>
       </tfoot>
     </table>
-    <div class="button-group">
-      <button class="button">Edit</button>
-      <button class="button">Remove</button>
-      <button class="button">Reset</button>
-      <button class="button">Undo</button>
-      <button class="button">Redo</button>
-      <button class="button">Populate Table</button>
-    </div>
+    <input type="text" id="search" placeholder="Search...">
+
     <div class="pagination">
       <!-- Pagination controls will be added here -->
     </div>
