@@ -118,6 +118,11 @@ th, td {
 .pagination {
   text-align: center;
   margin-top: 10px;
+
+  .sort-icon {
+  margin-left: 5px;
+  cursor: pointer;
+  }
 }
 </style>
 </head>
@@ -141,25 +146,22 @@ th, td {
       </div>
       <table>
         <thead>
-          <tr>
-            <th rowspan="2">Site</th>
-            <th rowspan="2">Guards</th>
-            
-            <th colspan="2">Time</th>
-            <th rowspan="2">N</th>
-            <th rowspan="2">T</th>
-            <th rowspan="2">D</th>
-            <th rowspan="2">Total</th>
-            <th rowspan="2">Extra</th>
-            <th rowspan="2">Grand Total</th>
-
-          </tr>
-          <tr>
-            <th>In</th>
-            <th>Out</th>
-
-            
-          </tr>
+        <thead>
+  <tr>
+    <th rowspan="2">Site</th>
+    <th rowspan="2">Guards</th>
+    <th colspan="2">Time</th>
+    <th rowspan="2">N</th>
+    <th rowspan="2">T</th>
+    <th rowspan="2">D</th>
+    <th rowspan="2">Total</th>
+    <th rowspan="2">Extra</th>
+    <th rowspan="2">Grand Total</th>
+  </tr>
+  <tr>
+    <th>In <span class="sort-icon" id="sortIn">▲▼</span></th>
+    <th>Out <span class="sort-icon" id="sortOut">▲▼</span></th>
+  </tr>
         </thead>
         <tbody>
           <!-- Sample data will be populated here using JavaScript -->
@@ -312,6 +314,46 @@ function updateTotals() {
 
 // Call the updateTotals function to calculate and update totals initially
 updateTotals();
+
+  //sortTable
+  function sortTable(columnIndex, ascending) {
+  const rows = Array.from(dataRows);
+  rows.sort((rowA, rowB) => {
+    const cellA = rowA.getElementsByTagName('td')[columnIndex].textContent;
+    const cellB = rowB.getElementsByTagName('td')[columnIndex].textContent;
+    if (!ascending) {
+      return cellB.localeCompare(cellA);
+    }
+    return cellA.localeCompare(cellB);
+  });
+
+  // Add a CSS class for animation
+  table.classList.add('sort-animation');
+
+  // Remove existing rows from the table with a delay
+  setTimeout(() => {
+    dataRows.forEach((row) => {
+      row.remove();
+    });
+
+    // Append the sorted rows back to the table with a delay
+    rows.forEach((row) => {
+      document.querySelector('tbody').appendChild(row);
+    });
+
+    // Remove the animation class after the animation completes
+    setTimeout(() => {
+      table.classList.remove('sort-animation');
+    }, 300); // Adjust the duration to match your CSS transition duration
+  }, 10); // A small delay to allow the animation class to take effect
+
+  // Update the sorting icons
+  sortIcons.forEach((icon) => {
+    icon.textContent = '▲▼';
+  });
+  sortIcons[columnIndex].textContent = ascending ? '▲' : '▼';
+    }
+  
 </script>
 </body>
 </html>
