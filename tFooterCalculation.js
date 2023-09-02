@@ -1,6 +1,6 @@
 $(document).ready(function () {
     // Load data from the external JavaScript file
-    $.getScript('https://raw.githubusercontent.com/saki789/Table/main/addDataToTable.js', function () {
+    $.getScript('https://saki789.github.io/Table/addDataToTable.js', function () {
         // Now, the 'data' array from the external script is accessible here
 
         var tbody = $('table tbody');
