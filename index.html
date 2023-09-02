@@ -145,6 +145,19 @@
         <tbody>
           <!-- Sample data will be populated here using JavaScript -->
         </tbody>
+        <tfoot>
+  <tr>
+    <td colspan="2">Total:</td>
+    <td id="totalHoursIn"></td>
+    <td id="totalHoursOut"></td>
+    <td id="totalN"></td>
+    <td id="totalT"></td>
+    <td id="totalD"></td>
+    <td id="totalTotal"></td>
+    <td id="totalExtra"></td>
+    <td id="totalGrandTotal"></td>
+  </tr>
+        </tfoot>
       </table>
       
       <div class="pagination">
@@ -240,6 +253,45 @@
   });
 
   // Add more event handlers as needed
+
+ // Function to calculate and update the totals
+function updateTotals() {
+  const dataRows = document.querySelectorAll('tbody tr');
+  let totalHoursIn = 0;
+  let totalHoursOut = 0;
+  let totalN = 0;
+  let totalT = 0;
+  let totalD = 0;
+  let totalTotal = 0;
+  let totalExtra = 0;
+  let totalGrandTotal = 0;
+  let totalSites = dataRows.length;
+
+  dataRows.forEach((row) => {
+    const columns = row.getElementsByTagName('td');
+    totalHoursIn += parseFloat(columns[2].textContent);
+    totalHoursOut += parseFloat(columns[3].textContent);
+    totalN += parseFloat(columns[4].textContent);
+    totalT += parseFloat(columns[5].textContent);
+    totalD += parseFloat(columns[6].textContent);
+    totalTotal += parseFloat(columns[7].textContent);
+    totalExtra += parseFloat(columns[8].textContent);
+  });
+
+  // Update the footer cells with the calculated totals
+  document.getElementById('totalHoursIn').textContent = totalHoursIn.toFixed(2);
+  document.getElementById('totalHoursOut').textContent = totalHoursOut.toFixed(2);
+  document.getElementById('totalN').textContent = totalN.toFixed(2);
+  document.getElementById('totalT').textContent = totalT.toFixed(2);
+  document.getElementById('totalD').textContent = totalD.toFixed(2);
+  document.getElementById('totalTotal').textContent = totalTotal.toFixed(2);
+  document.getElementById('totalExtra').textContent = totalExtra.toFixed(2);
+  document.getElementById('totalGrandTotal').textContent = (totalTotal + totalExtra).toFixed(2);
+  document.getElementById('totalSites').textContent = totalSites;
+}
+
+// Call the updateTotals function to calculate and update totals initially
+updateTotals();
 </script>
 </body>
 </html>
