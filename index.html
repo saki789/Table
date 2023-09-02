@@ -1,18 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Example</title>
+  <style>
+    /* Add your CSS styles here for better presentation */
+    /* For example: */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .button {
+      margin-right: 5px;
+    }
+  </style>
 </head>
 <body>
   <div class="table-container">
-    
     <div class="button-group">
-      <button class="button">Edit</button>
-      <button class="button">Remove</button>
-      <button class="button">Reset</button>
-      <button class="button">Undo</button>
-      <button class="button">Redo</button>
-      <button class="button">Populate Table</button>
+      <button class="button" id="editButton">Edit</button>
+      <button class="button" id="removeButton">Remove</button>
+      <button class="button" id="resetButton">Reset</button>
+      <button class="button" id="undoButton">Undo</button>
+      <button class="button" id="redoButton">Redo</button>
+      <button class="button" id="populateButton">Populate Table</button>
     </div>
     <table>
       <thead>
@@ -30,7 +50,7 @@
           <th>Grand Total (hr)</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="dataTable">
         <!-- Data rows will be added here -->
       </tbody>
       <tfoot>
@@ -45,12 +65,10 @@
           <th></th>
           <th></th>
           <th></th>
-          
         </tr>
       </tfoot>
     </table>
     <input type="text" id="search" placeholder="Search...">
-
     <div class="pagination">
       <!-- Pagination controls will be added here -->
     </div>
@@ -89,7 +107,7 @@
 
     // Function to populate the table with data
     function populateTable(data) {
-      const tbody = document.querySelector('tbody');
+      const tbody = document.getElementById('dataTable');
 
       data.forEach((rowData) => {
         const row = document.createElement('tr');
@@ -100,28 +118,27 @@
           row.appendChild(cell);
         });
 
-        // Add edit, remove buttons (you'll need to add event handlers for these buttons)
-        const actionsCell = document.createElement('td');
-        const editButton = document.createElement('button');
-        editButton.textContent = 'Edit';
-        // Add event handler for edit button
-        editButton.addEventListener('click', () => {
-          // Implement edit functionality
-        });
-
-        const removeButton = document.createElement('button');
-        removeButton.textContent = 'Remove';
-        // Add event handler for remove button
-        removeButton.addEventListener('click', () => {
-          // Implement remove functionality
-        });
-
         tbody.appendChild(row);
       });
     }
 
     // Populate the table with sample data
     populateTable(sampleData);
+
+    // Event handlers (you can add functionality here)
+    document.getElementById('editButton').addEventListener('click', () => {
+      // Implement edit functionality
+    });
+
+    document.getElementById('removeButton').addEventListener('click', () => {
+      // Implement remove functionality
+    });
+
+    document.getElementById('populateButton').addEventListener('click', () => {
+      // Implement populate functionality
+    });
+
+    // Add more event handlers as needed
   </script>
 </body>
 </html>
