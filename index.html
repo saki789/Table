@@ -403,6 +403,53 @@ addDataToTable(additionalData);
 
 // Update the totals after adding the data
 updateTotals();
+
+
+  // Function to sort the table
+function sortTable(columnIndex, ascending) {
+  const dataRows = Array.from(document.querySelectorAll('tbody tr'));
+  const sortIcons = Array.from(document.querySelectorAll('.sort-icon'));
+  const table = document.querySelector('table');
+
+  const rows = [...dataRows]; // Copy the rows to a new array for sorting
+  rows.sort((rowA, rowB) => {
+    const cellA = rowA.getElementsByTagName('td')[columnIndex].textContent;
+    const cellB = rowB.getElementsByTagName('td')[columnIndex].textContent;
+    if (!ascending) {
+      return cellB.localeCompare(cellA);
+    }
+    return cellA.localeCompare(cellB);
+  });
+
+  // Add a CSS class for animation
+  table.classList.add('sort-animation');
+
+  // Remove existing rows from the table with a delay
+  setTimeout(() => {
+    dataRows.forEach((row) => {
+      row.remove();
+    });
+
+    // Append the sorted rows back to the table with a delay
+    rows.forEach((row) => {
+      document.querySelector('tbody').appendChild(row);
+    });
+
+    // Remove the animation class after the animation completes
+    setTimeout(() => {
+      table.classList.remove('sort-animation');
+    }, 300); // Adjust the duration to match your CSS transition duration
+  }, 10); // A small delay to allow the animation class to take effect
+
+  // Update the sorting icons
+  sortIcons.forEach((icon) => {
+    icon.textContent = '▲▼';
+  });
+  sortIcons[columnIndex].textContent = ascending ? '▲' : '▼';
+        }
+
+
+    
 </script>
 </body>
 </html>
