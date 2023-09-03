@@ -1,18 +1,5 @@
 [
-    {
-        "Site": "Site 1",
-        "Guards": 5,
-        "Time": {
-            "In": "8:00 AM",
-            "Out": "4:00 PM"
-        },
-        "N": 3,
-        "T": 4,
-        "D": 5,
-        "Total": 12,
-        "Extra": 2,
-        "Grand Total": 14
-    },
+    
     {
         "Site": "Site 1",
         "Guards": 5,
