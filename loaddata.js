@@ -21,7 +21,7 @@ function populateTable(data) {
         const row = document.createElement('tr');
 
         // Create table cells for each data property
-        const columns = ['siteName', 'guardName', 'hoursIn', 'hoursOut', 'n', 't', 'd', 'total', 'extra', 'grandTotal'];
+        const columns = ['Site', 'Guards', 'In', 'Out', 'N' , 'T', 'D', 'Total', 'Extra', 'Grand Total'];
         columns.forEach(columnName => {
             const cell = document.createElement('td');
             cell.textContent = item[columnName];
