@@ -1,22 +1,11 @@
 [
-    
-    {
-        "Site": "Site 1",
-        "Guards": 5,
-        "In": "8:00 AM",
-        "Out": "4:00 PM",
-        "N": 3,
-        "T": 4,
-        "D": 5,
-        "Total": 12,
-        "Extra": 2,
-        "Grand Total": 14
-    },
     {
         "Site": "Site 2",
         "Guards": 6,
-        "In": "7:30 AM",
-        "Out": "3:30 PM",
+        "Time": {
+            "In": "7:30 AM",
+            "Out": "3:30 PM"
+        },
         "N": 4,
         "T": 3,
         "D": 6,
@@ -27,8 +16,10 @@
     {
         "Site": "Site 3",
         "Guards": 4,
-        "In": "8:15 AM",
-        "Out": "4:15 PM",
+        "Time": {
+            "In": "8:15 AM",
+            "Out": "4:15 PM"
+        },
         "N": 2,
         "T": 5,
         "D": 3,
@@ -39,8 +30,10 @@
     {
         "Site": "Site 4",
         "Guards": 7,
-        "In": "7:45 AM",
-        "Out": "4:45 PM",
+        "Time": {
+            "In": "7:45 AM",
+            "Out": "4:45 PM"
+        },
         "N": 5,
         "T": 4,
         "D": 4,
@@ -51,8 +44,80 @@
     {
         "Site": "Site 5",
         "Guards": 3,
-        "In": "8:30 AM",
-        "Out": "5:30 PM",
+        "Time": {
+            "In": "8:30 AM",
+            "Out": "5:30 PM"
+        },
+        "N": 2,
+        "T": 3,
+        "D": 4,
+        "Total": 9,
+        "Extra": 1,
+        "Grand Total": 10
+    },
+    {
+        "Site": "Site 6",
+        "Guards": 5,
+        "Time": {
+            "In": "9:00 AM",
+            "Out": "5:00 PM"
+        },
+        "N": 3,
+        "T": 4,
+        "D": 6,
+        "Total": 13,
+        "Extra": 2,
+        "Grand Total": 15
+    },
+    {
+        "Site": "Site 7",
+        "Guards": 6,
+        "Time": {
+            "In": "7:15 AM",
+            "Out": "3:15 PM"
+        },
+        "N": 4,
+        "T": 3,
+        "D": 6,
+        "Total": 13,
+        "Extra": 1,
+        "Grand Total": 14
+    },
+    {
+        "Site": "Site 8",
+        "Guards": 4,
+        "Time": {
+            "In": "8:45 AM",
+            "Out": "4:45 PM"
+        },
+        "N": 2,
+        "T": 5,
+        "D": 3,
+        "Total": 10,
+        "Extra": 2,
+        "Grand Total": 12
+    },
+    {
+        "Site": "Site 9",
+        "Guards": 7,
+        "Time": {
+            "In": "7:30 AM",
+            "Out": "4:30 PM"
+        },
+        "N": 5,
+        "T": 4,
+        "D": 4,
+        "Total": 13,
+        "Extra": 3,
+        "Grand Total": 16
+    },
+    {
+        "Site": "Site 10",
+        "Guards": 3,
+        "Time": {
+            "In": "8:15 AM",
+            "Out": "5:15 PM"
+        },
         "N": 2,
         "T": 3,
         "D": 4,
@@ -60,4 +125,4 @@
         "Extra": 1,
         "Grand Total": 10
     }
-]
+        ]
