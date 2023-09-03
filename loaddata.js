@@ -15,6 +15,11 @@ function populateTable(data) {
                     subColumnGroup.appendChild(subColumnCell);
                 });
                 row.appendChild(subColumnGroup);
+            } else if (column === 'Grand Total') {
+                // Handle 'Grand Total' column
+                const cell = document.createElement('td');
+                cell.textContent = item['Grand Total'];
+                row.appendChild(cell);
             } else {
                 const cell = document.createElement('td');
                 cell.textContent = item[column];
