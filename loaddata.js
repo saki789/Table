@@ -1,38 +1,40 @@
-// Function to fetch JSON data and populate the table
-function loadJSONAndPopulateTable() {
-    fetch('https://saki789.github.io/Table/data.json') // Replace with your JSON file URL
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            populateTable(data.data); // Assuming data is an array in the JSON
-        })
-        .catch(error => console.error('Error loading JSON:', error));
-}
-
-// Function to populate the table with JSON data
 function populateTable(data) {
     const tbody = document.querySelector('#dataTable tbody');
 
     data.forEach(item => {
         const row = document.createElement('tr');
 
-        // Create table cells for each data property
-        const columns = ['Site', 'Guards', 'In', 'Out', 'N' , 'T', 'D', 'Total', 'Extra', 'Grand Total'];
-        columns.forEach(columnName => {
-            const cell = document.createElement('td');
-            cell.textContent = item[columnName];
-            row.appendChild(cell);
+        const columns = ['Site', 'Guards', ['In', 'Out'], 'N', 'T', 'D', 'Total', 'Extra', 'Grand Total'];
+
+        columns.forEach(column => {
+            if (Array.isArray(column)) {
+                const subColumnGroup = document.createElement('td');
+                column.forEach(subColumnName => {
+                    const subColumnCell = document.createElement('div');
+                    subColumnCell.textContent = item[subColumnName];
+                    subColumnGroup.appendChild(subColumnCell);
+                });
+                row.appendChild(subColumnGroup);
+            } else {
+                const cell = document.createElement('td');
+                cell.textContent = item[column];
+                row.appendChild(cell);
+            }
         });
 
         tbody.appendChild(row);
     });
 }
 
-// Load JSON data and populate the table when the page is ready
+// Fetch JSON data from the external file
 document.addEventListener('DOMContentLoaded', () => {
-    loadJSONAndPopulateTable();
+    fetch('https://saki789.github.io/Table/data.json')
+        .then(response => response.json())
+        .then(data => {
+            // Call populateTable with the retrieved JSON data
+            populateTable(data);
+        })
+        .catch(error => {
+            console.error('Error fetching JSON:', error);
+        });
 });
