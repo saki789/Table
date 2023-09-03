@@ -4,25 +4,23 @@ function populateTable(data) {
     data.forEach(item => {
         const row = document.createElement('tr');
 
-        const columns = ['Site', 'Guards', ['Time.In', 'Time.Out'], 'N', 'T', 'D', 'Total', 'Extra', 'Grand Total'];
+        // Define the correct column order
+        const columns = ['Site', 'Guards', 'Time', 'N', 'T', 'D', 'Total', 'Extra', 'Grand Total'];
 
-        columns.forEach(column => {
-            if (Array.isArray(column)) {
-                const subColumnGroup = document.createElement('td');
-                column.forEach(subColumnName => {
-                    const subColumnCell = document.createElement('div');
-                    subColumnCell.textContent = item[subColumnName];
-                    subColumnGroup.appendChild(subColumnCell);
-                });
-                row.appendChild(subColumnGroup);
-            } else if (column === 'Grand Total') {
-                // Handle 'Grand Total' column
-                const cell = document.createElement('td');
-                cell.textContent = item['Grand Total'];
-                row.appendChild(cell);
+        columns.forEach(columnName => {
+            const cell = document.createElement('td');
+            
+            // Handle the "Time" column and the nested "In" and "Out" columns
+            if (columnName === 'Time') {
+                const timeCell = document.createElement('td');
+                timeCell.textContent = item['Time']['In'];
+                row.appendChild(timeCell);
+
+                const outTimeCell = document.createElement('td');
+                outTimeCell.textContent = item['Time']['Out'];
+                row.appendChild(outTimeCell);
             } else {
-                const cell = document.createElement('td');
-                cell.textContent = item[column];
+                cell.textContent = item[columnName];
                 row.appendChild(cell);
             }
         });
