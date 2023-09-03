@@ -4,15 +4,30 @@ function populateTable(data) {
     data.forEach(item => {
         const row = document.createElement('tr');
 
-        const columns = ['Site', 'Guards', ['In', 'Out'], 'N', 'T', 'D', 'Total', 'Extra', 'Grand Total'];
+        const columns = ['Site', 'Guards', ['Time', 'In', 'Out'], 'N', 'T', 'D', 'Total', 'Extra', 'Grand Total'];
 
         columns.forEach(column => {
             if (Array.isArray(column)) {
                 const subColumnGroup = document.createElement('td');
                 column.forEach(subColumnName => {
-                    const subColumnCell = document.createElement('div');
-                    subColumnCell.textContent = item[subColumnName];
-                    subColumnGroup.appendChild(subColumnCell);
+                    if (subColumnName === 'Time') {
+                        // Handle the "Time" sub-column
+                        const timeSubColumnGroup = document.createElement('div');
+                        timeSubColumnGroup.style.display = 'flex';
+
+                        ['In', 'Out'].forEach(timeSubCol => {
+                            const timeSubColumnCell = document.createElement('div');
+                            timeSubColumnCell.textContent = item[column][timeSubCol];
+                            timeSubColumnGroup.appendChild(timeSubColumnCell);
+                        });
+
+                        subColumnGroup.appendChild(timeSubColumnGroup);
+                    } else {
+                        // Handle other sub-columns as before
+                        const subColumnCell = document.createElement('div');
+                        subColumnCell.textContent = item[subColumnName];
+                        subColumnGroup.appendChild(subColumnCell);
+                    }
                 });
                 row.appendChild(subColumnGroup);
             } else {
